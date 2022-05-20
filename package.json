@@ -25,9 +25,10 @@
 		"react",
 		"reactjs",
 		"javascript",
-		"usestore",
+		"react-use-history-state",
 		"history",
-		"hooks"
+		"hooks",
+		"react-use-history-state"
 	],
 	"author": "kennarddh",
 	"license": "MIT",
