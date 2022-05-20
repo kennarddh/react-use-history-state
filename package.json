@@ -1,0 +1,65 @@
+{
+	"name": "@kennarddh/react-use-history-state",
+	"version": "1.4.0",
+	"description": "React hooks for history state management",
+	"main": "lib/bundle.cjs.js",
+	"module": "lib/bundle.esm.js",
+	"scripts": {
+		"rollup": "rollup -c",
+		"lint": "eslint .",
+		"prettier:fix": "prettier -w \"src/**/*.{js,jsx}\"",
+		"prettier:check": "prettier -c \"src/**/*.{js,jsx}\"",
+		"prepare": "npm run rollup",
+		"prepublishOnly": "npm run lint",
+		"preversion": "npm run lint",
+		"version": "npm run prettier:fix && git add -A src",
+		"postversion": "git push origin main && git push --tags"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/kennarddh/react-use-history-state.git"
+	},
+	"keywords": [
+		"state",
+		"state-management",
+		"react",
+		"reactjs",
+		"javascript",
+		"usestore",
+		"history",
+		"hooks"
+	],
+	"author": "kennarddh",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/kennarddh/react-use-history-state/issues"
+	},
+	"homepage": "https://github.com/kennarddh/react-use-history-state#readme",
+	"peerDependencies": {
+		"react": ">=16.8.0",
+		"react-dom": ">=16.8.0"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.17.6",
+		"@babel/core": "^7.17.9",
+		"@babel/preset-env": "^7.16.11",
+		"@babel/preset-react": "^7.16.7",
+		"@rollup/plugin-babel": "^5.3.1",
+		"@rollup/plugin-commonjs": "^21.1.0",
+		"@rollup/plugin-node-resolve": "^13.2.1",
+		"eslint": "^8.14.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-import": "^2.26.0",
+		"eslint-plugin-jsx-a11y": "^6.5.1",
+		"eslint-plugin-prettier": "^4.0.0",
+		"eslint-plugin-react": "^7.21.5",
+		"eslint-plugin-react-hooks": "^4.2.0",
+		"prettier": "^2.6.2",
+		"rollup": "^2.70.2",
+		"rollup-plugin-terser": "^7.0.2"
+	},
+	"files": [
+		"lib/**/*"
+	]
+}
