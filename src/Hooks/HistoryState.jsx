@@ -1,14 +1,27 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const useHistoryState = initialState => {
 	const [State, SetState] = useState(initialState)
-	const [History, StateHistory] = useState([])
+	const [History, SetHistory] = useState([initialState])
+	const [Pointer, SetPointer] = useState(0)
 
-	useEffect(() => {
-		StateHistory(history => [...history, State])
-	}, [State])
+	const ChangeState = value => {
+		if (value === History.at(-1)) return
 
-	return [State, SetState, [History]]
+		SetState(value)
+
+		SetHistory(history => [...history, value])
+
+		SetPointer(pointer => pointer + 1)
+	}
+
+	const Undo = () => {
+		SetState(History[Pointer - 1])
+
+		SetPointer(pointer => pointer - 1)
+	}
+
+	return [State, ChangeState, [History, Undo]]
 }
 
 export default useHistoryState
