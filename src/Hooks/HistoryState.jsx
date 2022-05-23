@@ -16,6 +16,8 @@ const useHistoryState = initialState => {
 	}
 
 	const Undo = () => {
+		if (Pointer === 0) return
+
 		SetState(History[Pointer - 1])
 
 		SetPointer(pointer => pointer - 1)
