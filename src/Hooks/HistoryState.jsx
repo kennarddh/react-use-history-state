@@ -28,11 +28,13 @@ const useHistoryState = initialState => {
 	}
 
 	const Redo = () => {
-		if (Pointer === History.length - 1) return
+		if (Pointer === History.length - 1) return false
 
 		SetState(History[Pointer + 1])
 
 		SetPointer(pointer => pointer + 1)
+
+		return true
 	}
 
 	return [State, ChangeState, [Undo, Redo, History]]
