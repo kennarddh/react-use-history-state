@@ -10,7 +10,11 @@ const useHistoryState = initialState => {
 
 		SetState(value)
 
-		SetHistory(history => [...history, value])
+		SetHistory(history => {
+			if (Pointer === history.length - 1) return [...history, value]
+
+			return [...history.slice(0, Pointer + 1), value]
+		})
 
 		SetPointer(pointer => pointer + 1)
 
