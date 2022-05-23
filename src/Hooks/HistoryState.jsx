@@ -6,7 +6,7 @@ const useHistoryState = initialState => {
 	const [Pointer, SetPointer] = useState(0)
 
 	const ChangeState = value => {
-		if (value === History.at(-1)) return false
+		if (value === History[History.length - 1]) return false
 
 		SetState(value)
 
