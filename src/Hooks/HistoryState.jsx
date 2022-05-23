@@ -31,7 +31,7 @@ const useHistoryState = initialState => {
 		SetPointer(pointer => pointer + 1)
 	}
 
-	return [State, ChangeState, [History, Undo, Redo]]
+	return [State, ChangeState, [Undo, Redo, History]]
 }
 
 export default useHistoryState
