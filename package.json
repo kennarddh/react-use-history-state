@@ -1,7 +1,7 @@
 {
 	"name": "@kennarddh/react-use-history-state",
 	"version": "1.4.0",
-	"description": "React hooks for history state management",
+	"description": "Undo or redo changes in state",
 	"main": "lib/bundle.cjs.js",
 	"module": "lib/bundle.esm.js",
 	"scripts": {
