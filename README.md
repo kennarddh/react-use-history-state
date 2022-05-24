@@ -2,6 +2,8 @@
 
 Undo or redo changes in state
 
+Here is the [demo](https://react-eghud9.stackblitz.io/).
+
 ## Installation
 
 ```bash
