@@ -60,8 +60,12 @@ const useHistoryState = (initialState, options) => {
 		SetHistory([State])
 		SetPointer(0)
 
+		if (options.onClearHistory) {
+			options.onClearHistory(History, [State])
+		}
+
 		return true
-	}, [State])
+	}, [History, State, options])
 
 	return [State, ChangeState, [Undo, Redo, ClearHistory, History]]
 }
