@@ -43,6 +43,7 @@ export default App
 	onUndo: callback(previous, current),
 	onRedo: callback(previous, current),
 	onChangeState: callback(previous, current),
+	onClearHistory: callback(previous, current),
 }
 ```
 
