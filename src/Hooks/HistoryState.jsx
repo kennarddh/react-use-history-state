@@ -19,9 +19,13 @@ const useHistoryState = (initialState, options) => {
 
 			SetPointer(pointer => pointer + 1)
 
+			if (options.onChangeState) {
+				options.onChangeState(History[Pointer], value)
+			}
+
 			return true
 		},
-		[Pointer, History]
+		[History, options, Pointer]
 	)
 
 	const Undo = useCallback(() => {
