@@ -41,6 +41,7 @@ export default App
 ```javascript
 {
 	onUndo: callback(previous, current),
+	onRedo: callback(previous, current),
 }
 ```
 
