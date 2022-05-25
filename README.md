@@ -18,7 +18,7 @@ import React from 'react'
 import { useHistoryState } from '@kennarddh/react-use-history-state'
 
 const App = () => {
-	const [Count, SetCount, [Undo, Redo, History]] = useHistoryState(1)
+	const [Count, SetCount, [Undo, Redo, ClearHistory, History]] = useHistoryState(1)
 
 	return (
 		<>
@@ -28,6 +28,7 @@ const App = () => {
 			<button onClick={() => SetCount(Count - 1)}>decrement</button>
 			<button onClick={Undo}>Undo</button>
 			<button onClick={Redo}>Redo</button>
+			<button onClick={ClearHistory}>Clear History</button>
 		</>
 	)
 }
