@@ -18,7 +18,7 @@ import React from 'react'
 import { useHistoryState } from '@kennarddh/react-use-history-state'
 
 const App = () => {
-	const [Count, SetCount, [Undo, Redo, ClearHistory, History]] = useHistoryState(1)
+	const [Count, SetCount, [Undo, Redo, ClearHistory, History]] = useHistoryState(1, options)
 
 	return (
 		<>
@@ -34,6 +34,14 @@ const App = () => {
 }
 
 export default App
+```
+
+### Options
+
+```javascript
+{
+	onUndo: callback(previous, current),
+}
 ```
 
 ## License
