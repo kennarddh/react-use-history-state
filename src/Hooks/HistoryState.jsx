@@ -45,8 +45,12 @@ const useHistoryState = (initialState, options) => {
 
 		SetPointer(pointer => pointer + 1)
 
+		if (options.onRedo) {
+			options.onRedo(History[Pointer], History[Pointer + 1])
+		}
+
 		return true
-	}, [History, Pointer])
+	}, [History, Pointer, options])
 
 	const ClearHistory = useCallback(() => {
 		SetHistory([State])
