@@ -44,7 +44,14 @@ const useHistoryState = initialState => {
 		return true
 	}, [History, Pointer])
 
-	return [State, ChangeState, [Undo, Redo, History]]
+	const ClearHistory = useCallback(() => {
+		SetHistory([State])
+		SetPointer(0)
+
+		return true
+	}, [State])
+
+	return [State, ChangeState, [Undo, Redo, ClearHistory, History]]
 }
 
 export default useHistoryState
