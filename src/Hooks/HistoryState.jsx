@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 
-const useHistoryState = initialState => {
+const useHistoryState = (initialState, options) => {
 	const [State, SetState] = useState(initialState)
 	const [History, SetHistory] = useState([initialState])
 	const [Pointer, SetPointer] = useState(0)
@@ -31,8 +31,12 @@ const useHistoryState = initialState => {
 
 		SetPointer(pointer => pointer - 1)
 
+		if (options.onUndo) {
+			options.onUndo(History[Pointer], History[Pointer - 1])
+		}
+
 		return true
-	}, [History, Pointer])
+	}, [History, Pointer, options])
 
 	const Redo = useCallback(() => {
 		if (Pointer === History.length - 1) return false
