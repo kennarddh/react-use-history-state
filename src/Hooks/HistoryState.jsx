@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 
-const useHistoryState = (initialState, options) => {
+const useHistoryState = (initialState, options = {}) => {
 	const [State, SetState] = useState(initialState)
 	const [History, SetHistory] = useState([initialState])
 	const [Pointer, SetPointer] = useState(0)
