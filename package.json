@@ -13,7 +13,8 @@
 		"prepublishOnly": "npm run lint && npm run prettier:fix && npm run rollup",
 		"preversion": "npm run lint",
 		"version": "npm run prettier:fix && git add -A src",
-		"postversion": "git push origin main && git push --tags"
+		"postversion": "git push origin main && git push --tags",
+		"test": "jest"
 	},
 	"repository": {
 		"type": "git",
@@ -56,6 +57,7 @@
 		"eslint-plugin-prettier": "^4.0.0",
 		"eslint-plugin-react": "^7.21.5",
 		"eslint-plugin-react-hooks": "^4.2.0",
+		"jest": "^28.1.0",
 		"prettier": "^2.6.2",
 		"rollup": "^2.70.2",
 		"rollup-plugin-terser": "^7.0.2"
