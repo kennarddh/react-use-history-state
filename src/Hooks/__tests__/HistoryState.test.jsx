@@ -33,7 +33,7 @@ describe('history state', () => {
 		})
 
 		expect(result.current[0]).toBe('bar')
-		expect(result.current[2][3]).toEqual(['foo', 'bar'])
+		expect(result.current[2][3]).toStrictEqual(['foo', 'bar'])
 	})
 
 	it('should undo the last state change', () => {
@@ -51,7 +51,7 @@ describe('history state', () => {
 
 		expect(result.current[0]).toBe('foo')
 
-		expect(result.current[2][3]).toEqual(['foo', 'bar'])
+		expect(result.current[2][3]).toStrictEqual(['foo', 'bar'])
 	})
 
 	it('should redo the last state change', () => {
@@ -91,7 +91,7 @@ describe('history state', () => {
 
 		expect(result.current[0]).toBe('bar')
 
-		expect(result.current[2][3]).toEqual(['bar'])
+		expect(result.current[2][3]).toStrictEqual(['bar'])
 	})
 
 	it('should not change the state if the new state is the same as the current state', () => {
@@ -105,7 +105,7 @@ describe('history state', () => {
 
 		expect(result.current[0]).toBe('foo')
 
-		expect(result.current[2][3]).toEqual(['foo'])
+		expect(result.current[2][3]).toStrictEqual(['foo'])
 	})
 
 	it('should return the current history', () => {
@@ -113,6 +113,6 @@ describe('history state', () => {
 
 		const { result } = renderHook(() => useHistoryState('foo'))
 
-		expect(result.current[2][3]).toEqual(['foo'])
+		expect(result.current[2][3]).toStrictEqual(['foo'])
 	})
 })
