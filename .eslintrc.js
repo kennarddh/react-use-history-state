@@ -3,15 +3,16 @@ module.exports = {
 		browser: true,
 		es2021: true,
 		node: true,
-		jest: true,
+		'jest/globals': true,
 	},
 	extends: [
 		'eslint:recommended',
 		'airbnb-base',
 		'plugin:prettier/recommended',
 		'plugin:react/recommended',
+		'plugin:jest/all',
 	],
-	plugins: ['prettier', 'react'],
+	plugins: ['prettier', 'react', 'jest'],
 	parserOptions: {
 		ecmaFeatures: {
 			jsx: true,
