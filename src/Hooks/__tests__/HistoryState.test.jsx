@@ -2,7 +2,7 @@ import { renderHook, act } from '@testing-library/react-hooks/dom'
 
 import useHistoryState from '../HistoryState'
 
-describe('History state', () => {
+describe('history state', () => {
 	it('should return the current state', () => {
 		const { result } = renderHook(() => useHistoryState('foo'))
 
