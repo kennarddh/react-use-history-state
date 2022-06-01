@@ -6,12 +6,13 @@
 	"module": "lib/bundle.esm.js",
 	"scripts": {
 		"rollup": "rollup -c",
-		"lint": "eslint .",
+		"lint:check": "eslint src/**/*.{js,jsx}",
+		"lint:fix": "eslint --fix src/**/*.{js,jsx}",
 		"prettier:fix": "prettier -w \"src/**/*.{js,jsx}\"",
 		"prettier:check": "prettier -c \"src/**/*.{js,jsx}\"",
 		"prepare": "npm run rollup",
 		"prepublishOnly": "npm run lint && npm run prettier:fix && npm run rollup",
-		"preversion": "npm run lint",
+		"preversion": "npm run lint:fix",
 		"version": "npm run prettier:fix && git add -A src",
 		"postversion": "git push origin main && git push --tags",
 		"test": "jest"
