@@ -115,4 +115,20 @@ describe('history state', () => {
 
 		expect(result.current[2][3]).toStrictEqual(['foo'])
 	})
+
+	it('should call the onChangeState callback', () => {
+		expect.assertions(1)
+
+		const onChangeState = jest.fn()
+
+		const { result } = renderHook(() =>
+			useHistoryState('foo', { onChangeState })
+		)
+
+		act(() => {
+			result.current[1]('bar')
+		})
+
+		expect(onChangeState).toHaveBeenCalledWith('foo', 'bar')
+	})
 })
