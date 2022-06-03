@@ -131,4 +131,22 @@ describe('history state', () => {
 
 		expect(onChangeState).toHaveBeenCalledWith('foo', 'bar')
 	})
+
+	it('should call the onUndo callback', () => {
+		expect.assertions(1)
+
+		const onUndo = jest.fn()
+
+		const { result } = renderHook(() => useHistoryState('foo', { onUndo }))
+
+		act(() => {
+			result.current[1]('bar')
+		})
+
+		act(() => {
+			result.current[2][0]()
+		})
+
+		expect(onUndo).toHaveBeenCalledWith('bar', 'foo')
+	})
 })
