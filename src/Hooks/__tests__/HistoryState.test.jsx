@@ -171,4 +171,27 @@ describe('history state', () => {
 
 		expect(onRedo).toHaveBeenCalledWith('foo', 'bar')
 	})
+
+	it('should call the onClearHistory callback', () => {
+		expect.assertions(3)
+
+		const onClearHistory = jest.fn()
+
+		const { result } = renderHook(() =>
+			useHistoryState('foo', { onClearHistory })
+		)
+
+		act(() => {
+			result.current[1]('bar')
+		})
+
+		act(() => {
+			result.current[2][2]()
+		})
+
+		expect(result.current[0]).toBe('bar')
+		expect(result.current[2][3]).toStrictEqual(['bar'])
+
+		expect(onClearHistory).toHaveBeenCalledWith(['foo', 'bar'], ['bar'])
+	})
 })
