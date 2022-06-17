@@ -149,4 +149,26 @@ describe('history state', () => {
 
 		expect(onUndo).toHaveBeenCalledWith('bar', 'foo')
 	})
+
+	it('should call the onRedo callback', () => {
+		expect.assertions(1)
+
+		const onRedo = jest.fn()
+
+		const { result } = renderHook(() => useHistoryState('foo', { onRedo }))
+
+		act(() => {
+			result.current[1]('bar')
+		})
+
+		act(() => {
+			result.current[2][0]()
+		})
+
+		act(() => {
+			result.current[2][1]()
+		})
+
+		expect(onRedo).toHaveBeenCalledWith('foo', 'bar')
+	})
 })
